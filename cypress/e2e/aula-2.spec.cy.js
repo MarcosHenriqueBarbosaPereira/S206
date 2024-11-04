@@ -51,6 +51,8 @@ describe("Tests including, creation, registers and login", () => {
     cy.get('.btn').click()
     cy.wait(500)
     cy.get('h2').should('contain.text', 'Login')
+    cy.login(userData[0], userData[1])
+    cy.get('.ng-binding').should('contain.text', 'Username or password is incorrect')
   })
 })
 
