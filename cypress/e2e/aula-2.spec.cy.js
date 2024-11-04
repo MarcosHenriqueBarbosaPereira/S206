@@ -49,6 +49,7 @@ describe("Tests including, creation, registers and login", () => {
     cy.get('button[type="submit"]').click()
     cy.get('h1.ng-binding').should('contain.text', userData[0])
     cy.get('.ng-binding > a').click()
+    cy.get('h1.ng-binding').not('contain.text', userData[0])
     cy.get('.btn').click()
     cy.wait(500)
     cy.get('h2').should('contain.text', 'Login')
