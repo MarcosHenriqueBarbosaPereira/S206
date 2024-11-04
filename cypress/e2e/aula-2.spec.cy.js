@@ -44,9 +44,7 @@ describe("Tests including, creation, registers and login", () => {
 
   it("should delete an user account succesfully", () => {
     let userData = createUser()
-    cy.get('input[name="username"]').type(userData[0])
-    cy.get('input[name="password"]').type(userData[1])
-    cy.get('button[type="submit"]').click()
+    cy.login(userData[0], userData[1])
     cy.get('h1.ng-binding').should('contain.text', userData[0])
     cy.get('.ng-binding > a').click()
     cy.get('h1.ng-binding').not('contain.text', userData[0])
