@@ -28,7 +28,7 @@ describe("Tests including, creation, registers and login", () => {
     cy.get('input[name="username"]').type(userData[0])
     cy.get('input[name="password"]').type('123teste3214')
     cy.get('button[type="submit"]').click()
-    cy.get('.ng-binding').should('contain.text', 'Username or password is incorrect')
+    cy.get('.ng-binding').should('have.text', 'Username or password is incorrect')
   })
 
   it("should not create an user account with an existing username", () => {
@@ -52,7 +52,7 @@ describe("Tests including, creation, registers and login", () => {
     cy.wait(500)
     cy.get('h2').should('contain.text', 'Login')
     cy.login(userData[0], userData[1])
-    cy.get('.ng-binding').should('contain.text', 'Username or password is incorrect')
+    cy.get('.ng-binding').should('have.text', 'Username or password is incorrect')
   })
 })
 
